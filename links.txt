@@ -2,4 +2,4 @@ AWS
 https://main.d2avn7vdqhg1oy.amplifyapp.com/
 
 Netlify
-https://splendid-unicorn-c20c78.netlify.app/
+https://vermillion-tarsier-3c06bb.netlify.app
