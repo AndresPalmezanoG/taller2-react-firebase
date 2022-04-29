@@ -1,10 +1,10 @@
 import React from 'react';
 import { Modal, Header, Image, Button } from "semantic-ui-react"
+import image from "../pages/Home";
 
 const ModalComp = ({
     open,
     setOpen,
-    img,
     name,
     info,
     mail,
@@ -21,7 +21,7 @@ const ModalComp = ({
         open={open}>
             <Modal.Header>User Detail</Modal.Header>
             <Modal.Content image>
-                <Image size="medium" src={img} warpped />
+                <Image size="medium" src={image} warpped />
                 <Modal.Description>
                     <Header>{name}</Header>
                     <p>{info}</p>

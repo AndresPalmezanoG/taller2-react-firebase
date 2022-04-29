@@ -36,11 +36,6 @@ const AddEditUser = () => {
         }
     }
 
-    let image = 'https://picsum.photos/150/150?image='
-    const valor = () =>{
-        return Math.floor(Math.random()*(599-100+1)+100)
-    }
-
     const handleChange = (e) => {
         setData({ ...data, [e.target.name]: e.target.value })
     };
