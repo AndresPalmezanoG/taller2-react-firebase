@@ -12,6 +12,11 @@ const Home = () => {
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
 
+    let image = 'https://picsum.photos/150/150?image='
+    const valor = () =>{
+        return Math.floor(Math.random()*(599-100+1)+100)
+    }
+
     useEffect(() => {
         setLoading(true);
         const unsub = onSnapshot(collection(db, "users"), (snapshot) => {
@@ -53,7 +58,7 @@ const Home = () => {
                     <Grid.Column key={item.id}>
                         <Card.Content>
                             <Image
-                                src={item.img}
+                                src={image+valor()}
                                 size="medium"
                                 style={{
                                     height: "150px",

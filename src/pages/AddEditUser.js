@@ -36,41 +36,15 @@ const AddEditUser = () => {
         }
     }
 
-    useEffect(() => {
-        const uploadFile = () => {
-            const name = new Date().getTime() + file.name;
-            const storageRef = ref(storage, file.name);
-            const uploadTask = uploadBytesResumable(storageRef, file);
+    let image = 'https://picsum.photos/150/150?image='
+    const valor = () =>{
+        return Math.floor(Math.random()*(599-100+1)+100)
+    }
 
-            uploadTask.on("state_changed", (snapshot) => {
-                const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-                setPreogress(progress);
-                switch (snapshot.state) {
-                    case "paused":
-                        console.log("Upload is pause");
-                        break;
-                    case "running":
-                        console.log("Upload is running");
-                        break;
-                    default:
-                        break;
-                }
-            }, (error) => {
-                console.log(error)
-            }, () => {
-                getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-                    setData((prev) => ({ ...prev, img: downloadURL }));
-                });
-            }
-            );
-        };
-
-        file && uploadFile()
-
-    }, [file])
     const handleChange = (e) => {
         setData({ ...data, [e.target.name]: e.target.value })
     };
+
     const validate = () => {
         let errors = {};
         if (!name) {
@@ -180,11 +154,6 @@ const AddEditUser = () => {
                                             name="country"
                                             onChange={handleChange}
                                             value={country}
-                                        />
-                                        <Form.Input
-                                            label="Upload"
-                                            type="file"
-                                            onChange={(e) => setFile(e.target.files[0])}
                                         />
                                         <Button
                                             primary
