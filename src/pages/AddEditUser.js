@@ -11,7 +11,8 @@ const initialState = {
     info: "",
     contact: "",
     address: "",
-    country: ""
+    country: "",
+    company: ""
 }
 
 const AddEditUser = () => {
@@ -20,7 +21,7 @@ const AddEditUser = () => {
     const [progress, setPreogress] = useState(null);
     const [errors, setErrors] = useState({});
     const [isSubmit, setIsSubmit] = useState(false);
-    const { name, mail, info, contact, address, country } = data;
+    const { name, mail, info, contact, address, country, company } = data;
     const navigate = useNavigate();
     const { id } = useParams();
 
@@ -59,6 +60,9 @@ const AddEditUser = () => {
         }
         if (!country) {
             errors.country = "Country is required"
+        }
+        if (!company) {
+            errors.country = "Company is required"
         }
         return errors;
     };
@@ -149,6 +153,14 @@ const AddEditUser = () => {
                                             name="country"
                                             onChange={handleChange}
                                             value={country}
+                                        />
+                                        <Form.Input
+                                            label="Company"
+                                            error={errors.company ? { content: errors.company } : null}
+                                            placeHolder="Enter Company"
+                                            name="company"
+                                            onChange={handleChange}
+                                            value={company}
                                         />
                                         <Button
                                             primary
