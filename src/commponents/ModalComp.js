@@ -1,6 +1,10 @@
 import React from 'react';
 import { Modal, Header, Image, Button } from "semantic-ui-react"
-import image from "../pages/Home";
+
+let image = 'https://picsum.photos/150/150?image='
+const valor = () =>{
+    return Math.floor(Math.random()*(599-100+1)+100)
+}
 
 const ModalComp = ({
     open,
@@ -12,6 +16,7 @@ const ModalComp = ({
     id,
     address,
     country,
+    company,
     handleDelete
 }) => {
     return (
@@ -21,7 +26,7 @@ const ModalComp = ({
         open={open}>
             <Modal.Header>User Detail</Modal.Header>
             <Modal.Content image>
-                <Image size="medium" src={image} warpped />
+                <Image size="medium" src={image+valor()} warpped />
                 <Modal.Description>
                     <Header>{name}</Header>
                     <p>{info}</p>
@@ -29,6 +34,7 @@ const ModalComp = ({
                     <p>{contact}</p>
                     <p>{address}</p>
                     <p>{country}</p>
+                    <p>{company}</p>
                 </Modal.Description>
             </Modal.Content>
             <Modal.Actions>
